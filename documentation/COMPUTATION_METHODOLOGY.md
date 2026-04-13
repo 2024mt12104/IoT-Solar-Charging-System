@@ -32,6 +32,20 @@ Where:
 - `V_REF` = 3.3 V (STM32 internal reference)
 - `V_adc` = voltage at the ADC pin (0–3.3 V)
 
+
+**LAYMAN'S EXPLANATION:**
+Think of the ADC like a **translator converting analog thermometers to digital numbers**:
+- Analog temperature: Continuous values (25.3°C, 25.31°C, etc.)
+- Digital reading: Discrete steps (25°C, 26°C, etc.)
+- The ADC converts smooth analog signals into digital steps the computer understands
+
+**PRACTICAL EXAMPLE:**
+```
+ADC_raw = 2048 (middle value) V_adc = (2048 / 4095) × 3.3 V_adc = 0.5 × 3.3 = 1.65V
+
+Real meaning: ADC read the voltage at the middle of its range (half of 3.3V)
+```
+
 ### 2.2 Voltage Measurement
 
 A resistor voltage divider scales the system voltage to the ADC input range:
