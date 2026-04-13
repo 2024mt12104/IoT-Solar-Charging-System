@@ -1,0 +1,55 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg
+*.egg-info/
+dist/
+build/
+*.so
+.env
+venv/
+env/
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.npm
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-workspace
+.DS_Store
+
+# Build artifacts
+*.o
+*.out
+*.elf
+*.hex
+*.bin
+*.map
+
+# STM32CubeIDE build
+firmware/stm32/Debug/
+firmware/stm32/Release/
+firmware/stm32/*.launch
+
+# Arduino build
+*.bin
+*.ino.d32.bin
+
+# Data files (too large for git, use git-lfs if needed)
+data/test_results/*.csv
+data/calibration_data/*.csv
+
+# Temporary files
+*.tmp
+*.bak
+*~
