@@ -189,7 +189,14 @@ float compute_power(float voltage, float current) {
     return voltage * current;  // Watts
 }
 ```
+**LAYMAN'S EXPLANATION:**
 
+- Power is how fast energy flows RIGHT NOW:
+- Like water pressure × flow rate = force coming out of hose
+- Higher voltage + higher current = more power at this instant
+- Power changes every millisecond as voltage/current vary
+
+  
 ### 4.2 Cumulative Energy
 
 Energy is computed by numerically integrating power over time using the **trapezoidal rule** (discrete approximation):
