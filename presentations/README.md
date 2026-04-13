@@ -10,7 +10,7 @@
 
 | File | Description |
 |------|-------------|
-| `Mid_Sem_Viva_Presentation.pptx` | Complete 20-slide PowerPoint for mid-semester viva |
+| `Mid_Sem_Viva_Presentation.pptx` | Complete 21-slide PowerPoint for mid-semester viva |
 
 ---
 
