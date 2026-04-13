@@ -65,6 +65,14 @@ V_actual = V_adc × (R1 + R2) / R2
 V_calibrated = V_actual × (1 + gain_error) + offset_error
 ```
 
+**LAYMAN'S EXPLANATION:**
+Imagine a water pressure meter:
+- High pressure (12V) would break the meter (designed for max 3.3V)
+- So we use a **pressure reducer** (resistor divider)
+- The reducer converts 12V down to 3.3V (divides by 4)
+- We then multiply back by 4 to get the real 12V value
+
+
 ### 2.3 Current Measurement
 
 **Using ACS712 Hall-Effect Sensor:**
@@ -74,6 +82,12 @@ V_calibrated = V_actual × (1 + gain_error) + offset_error
 ```
 I_actual = (V_adc_current - V_zero) / Sensitivity
 ```
+**LAYMAN'S EXPLANATION:**
+Think of a water flow meter:
+- No water flowing: Center position (2.5V - reference)
+- Water flowing clockwise: Reading increases (2.5V + proportional amount)
+- Water flowing counter-clockwise: Reading decreases (2.5V - proportional amount)
+- The sensor detects magnetic field created by current
 
 **Example (ACS712-5A, 5V supply):**
 ```
@@ -106,6 +120,27 @@ float moving_average(float *buffer, float new_sample) {
 
 **Effect:** Reduces high-frequency noise; introduces a lag of ~N/2 samples.
 
+**LAYMAN'S EXPLANATION:**
+
+- Imagine listening to a radio with interference:
+- Raw signal: Music mixed with static noise
+- Moving average filter: Removes static by averaging last 16 radio samples
+- Result: Clear music, but slightly delayed (trade-off for clarity)
+
+**PRACTICAL EXAMPLE:**
+```
+Raw voltage readings (with noise):
+12.1, 11.9, 15.2, 12.0, 11.8, 12.1 (notice 15.2 is noise spike)
+
+With 3-point moving average:
+Position 1: (12.1 + 11.9 + 15.2) / 3 = 13.07
+Position 2: (11.9 + 15.2 + 12.0) / 3 = 13.03
+Position 3: (15.2 + 12.0 + 11.8) / 3 = 13.0
+Position 4: (12.0 + 11.8 + 12.1) / 3 = 11.97
+
+Result: Noise spike (15.2) is smoothed out to ~13.0!
+```
+
 ### 3.2 Exponential Moving Average (EMA)
 
 For faster response with noise reduction:
@@ -118,6 +153,25 @@ Where α ∈ (0, 1) is the smoothing factor:
 - α = 0.1 → Heavy smoothing, slow response
 - α = 0.5 → Moderate balance
 - α = 0.9 → Light smoothing, fast response
+
+**LAYMAN'S EXPLANATION:**
+Like mixing paint colors:
+
+α = 1.0: All new color (very responsive, but noise-prone)
+α = 0.5: Equal mix of new and old (balanced)
+α = 0.1: Mostly old color (smooth but slow to changes)
+
+**PRACTICAL EXAMPLE:**
+```
+Raw readings: 100, 102, 98, 101, 99, 100
+α = 0.3, Previous filtered value: 100
+
+Step 1: V_f = 0.3 × 102 + 0.7 × 100 = 30.6 + 70 = 100.6
+Step 2: V_f = 0.3 × 98 + 0.7 × 100.6 = 29.4 + 70.42 = 99.82
+Step 3: V_f = 0.3 × 101 + 0.7 × 99.82 = 30.3 + 69.87 = 100.17
+
+Result: Smooth, stable readings around 100!
+```
 
 ---
 
