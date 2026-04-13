@@ -45,6 +45,8 @@ All project documentation files written in Markdown for version control compatib
 | `COMPUTATION_METHODOLOGY.md` | Mathematical formulations and algorithms |
 | `DESIGN_CONSIDERATIONS.md` | Design rationale and trade-off analysis |
 | `LITERATURE_REVIEW.md` | Annotated bibliography and research gaps |
+| `Computations_Complete_Guide.md` | Full computation guide with examples and layman explanations |
+| `Complete_Computation_Guide.pdf` | **Professional PDF** — 26-page complete computation guide with color-coded sections, formula boxes, tables, and real-world charging scenario (viva-ready) |
 
 ---
 
