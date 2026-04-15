@@ -10,7 +10,7 @@
 
 | File | Description |
 |------|-------------|
-| `Mid_Sem_Viva_Presentation.pptx` | Complete 21-slide PowerPoint for mid-semester viva |
+| `Mid_Sem_Viva_Presentation.pptx` | Complete 12-slide PowerPoint for mid-semester viva |
 
 ---
 
@@ -18,36 +18,27 @@
 
 ### Before the Viva
 
-1. **Practice timing:** Each slide should take approximately 1–2 minutes. Total presentation: ~20–25 minutes.
+1. **Practice timing:** Each slide should take approximately 1.5–2.5 minutes. Total presentation: ~20 minutes.
 2. **Know your references:** Be able to explain any of the 5 cited papers in detail.
-3. **Understand the computations:** Review `documentation/COMPUTATION_METHODOLOGY.md`.
-4. **Prepare for questions on:** System architecture, design choices, progress status.
+3. **Understand the computations:** Review `documentation/COMPUTATION_METHODOLOGY.md` and `documentation/Computations_Complete_Guide.md`. Slides 9–10 focus on computational metrics per faculty feedback.
+4. **Prepare for questions on:** System architecture, design choices, computational metrics, progress status.
 
 ### Slide-by-Slide Guide
 
 | Slide | Title | Key Points to Emphasize | Time |
 |-------|-------|------------------------|------|
-| 1 | Title | Introduce yourself and your guide | 1 min |
-| 2 | Introduction – Background | EV growth, solar energy trends | 2 min |
-| 3 | Introduction – Problem & Novelty | Intermittency, no IoT in small-scale | 2 min |
-| 4 | Objectives | 5 clear objectives, all measurable | 1.5 min |
-| 5 | Scope of Work | What is and isn't in scope | 1.5 min |
-| 6 | Literature – Overview | State of art in 4 categories | 2 min |
-| 7 | Literature – Key Papers | Briefly summarize each paper | 2 min |
-| 8 | Literature – Gaps & Contribution | Emphasize YOUR contribution | 2 min |
-| 9 | Architecture – Block Diagram | Walk through signal/data flow | 2 min |
-| 10 | Architecture – Component Details | Explain each component's role | 1.5 min |
-| 11 | Design – Safety & Architecture | Modular design benefits | 1.5 min |
-| 12 | Design – Computation & Control | P=V×I, PWM control, loop time | 2 min |
-| 13 | Methodology – Development Phases | 5 phases, what's done | 1.5 min |
-| 14 | Methodology – Modular Implementation | Firmware modules | 1.5 min |
-| 15 | Data Collection Plan | Sampling rates, logging strategy | 1.5 min |
-| 16 | Current Progress | Be honest about what's done/pending | 2 min |
-| 17 | Simulation Approach | How you'll demo without hardware | 1.5 min |
-| 18 | Expected Outcomes | All 7 deliverables | 1 min |
-| 19 | Timeline | Phases and current status | 1 min |
-| 20 | Challenges & Solutions | 5 challenges, 5 solutions | 1 min |
-| 21 | References & Conclusion | Future scope, GitHub link | 1 min |
+| 1 | Title Slide | Introduce yourself, guide, institution, viva date | 1 min |
+| 2 | Introduction – Background & Problem | EV growth, solar intermittency, 5 key problems, innovation statement | 2 min |
+| 3 | Introduction – Objectives & Scope | 5 objectives, in-scope vs out-of-scope items | 2 min |
+| 4 | Literature Review – Thematic Overview | 4 themes: Solar, Supercap, HBSC, IoT with key findings | 2 min |
+| 5 | Literature Review – Key Papers & Gaps | 5 references table, gaps identified, project contribution | 2 min |
+| 6 | Research Methodology – Approach & Phases | Methodology, 3-part validation, 6-phase timeline with status | 2 min |
+| 7 | Research Methodology – System Architecture | Block diagram, STM32 control, ESP8266 IoT layer, components | 2.5 min |
+| 8 | Data Collection – Plan & Progress | Sampling strategy, JSON packet, progress checklist | 2 min |
+| 9 | Computational Metrics – What & Why (**Faculty Focus**) | Definition, importance, 6 core metrics overview | 2.5 min |
+| 10 | Computational Metrics – Formulas & Application (**Faculty Focus**) | 4 key formulas with examples, real-world scenario flow | 2.5 min |
+| 11 | Expected Outcomes & Challenges | 7 deliverables, 5 challenges with mitigations, simulation approach | 2 min |
+| 12 | References & Thank You | 5 references, future scope, contact info | 1 min |
 
 ---
 
@@ -88,21 +79,26 @@ A: Three-part validation: (1) Software simulation with realistic charging models
 
 ## Presentation Tips
 
-### For Slide 8 (Research Gaps)
+### For Slide 5 (Research Gaps)
 This is a **critical slide** — examiners want to see that you understand where your work fits in the academic landscape.
 - Point to specific references for each gap
 - Be clear about YOUR contribution vs. existing work
 - Use phrases like "This project directly addresses..."
 
-### For Slide 12 (Computation)
-Faculty specifically requested computation content. **Highlight:**
+### For Slides 9 & 10 (Computational Metrics — Faculty Feedback Focus)
+Faculty specifically requested computation content. These two slides address that feedback directly. **Highlight:**
+- What computational metrics are and why they are needed
 - P = V × I (instantaneous power)
-- E = ∫P dt (energy integration)
-- SoC formula for supercapacitor
-- PI controller for PWM regulation
-- Error analysis figures
+- E = ΣP×Δt (energy integration)
+- E = ½CV² (supercapacitor energy)
+- η = P_out/P_in × 100% (efficiency)
+- SoC formula for supercapacitor (energy-proportional, V²-based)
+- PWM duty cycle control
+- Error analysis (±2.06% total)
+- The 6-step real-world scenario flow (Sense → Compute → Integrate → Control → Protect → Transmit)
+- Timing: <10ms cycle, 1kHz sampling, 1Hz cloud update
 
-### For Slide 16 (Progress)
+### For Slide 8 (Progress)
 Be **honest and specific**. Examiners appreciate accurate status updates over overstatements. Clearly distinguish completed vs. in-progress vs. upcoming items.
 
 ---
