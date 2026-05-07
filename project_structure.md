@@ -212,12 +212,12 @@ data/
 |-----------|--------|-------|
 | Documentation | ✅ Complete | All docs created |
 | Presentations | ✅ Complete | Mid-sem viva ready |
-| STM32 Firmware | 🔄 In Progress | ADC, PWM modules underway |
-| ESP8266 Gateway | 🔄 In Progress | Communication protocol designed |
-| Cloud Backend | 📅 Planned | API design finalized |
-| Frontend Dashboard | 📅 Planned | Mockup available |
+| STM32 Firmware | ✅ Complete | All 5 modules: sensor, PWM, supercap, power, UART |
+| ESP8266 Gateway | ✅ Complete | WiFi, JSON parsing, HTTP upload |
+| Cloud Backend | ✅ Complete | Flask REST API, SQLite, 6 endpoints |
+| Frontend Dashboard | ✅ Complete | React + Chart.js, 5 live panels |
 | Hardware Assembly | 📅 Planned | Components being sourced |
-| Simulation Demo | 📅 Planned | Architecture designed |
+| Simulation Demo | ✅ Complete | Physics model, firmware simulator, 4 scenarios |
 
 ---
 
