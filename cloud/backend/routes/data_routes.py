@@ -31,8 +31,8 @@ def receive_data():
 
     try:
         reading = SensorReading.from_dict(payload)
-    except (ValueError, TypeError) as exc:
-        return jsonify({"error": f"Data validation error: {exc}"}), 422
+    except (ValueError, TypeError):
+        return jsonify({"error": "Data validation error: invalid field type or value"}), 422
 
     row_id = SensorReadingModel.insert(reading)
     return jsonify({"status": "ok", "id": row_id}), 201
