@@ -44,6 +44,11 @@
 #define WIFI_SSID       "YOUR_WIFI_SSID"
 #define WIFI_PASSWORD   "YOUR_WIFI_PASSWORD"
 
+/* Compile-time check: remind developer to set actual credentials */
+#if defined(WIFI_SSID) && (WIFI_SSID[0] == 'Y')
+  #warning "WiFi credentials are still placeholders – update WIFI_SSID and WIFI_PASSWORD in config.h or use config_local.h"
+#endif
+
 /* -------------------------------------------------------------------------
  * Cloud API endpoints
  * Set CLOUD_USE_HTTPS to 1 when TLS is available (requires BearSSL client).

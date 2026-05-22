@@ -124,11 +124,41 @@ IoT-Solar-Charging-System/
 
 - **Embedded:** STM32CubeIDE, HAL Library, C/C++
 - **IoT Gateway:** Arduino IDE, ESP8266 SDK
-- **Cloud/Backend:** Node.js, Python (Flask/FastAPI)
+- **Cloud/Backend:** Python (Flask), REST API
 - **Frontend:** React.js, Chart.js
 - **Simulation:** Python, Matplotlib, NumPy
+- **ML/Analytics:** scikit-learn, XGBoost, Pandas
 - **Documentation:** Markdown, LaTeX (optional)
 - **Version Control:** Git, GitHub
+
+---
+
+## Quick Start – Environment Setup
+
+```powershell
+# One-command setup (installs ALL dependencies):
+.\setup_environment.ps1 -Component all
+
+# Or install individual components:
+.\setup_environment.ps1 -Component python     # Flask + ML + Simulation
+.\setup_environment.ps1 -Component esp8266    # Arduino CLI + ESP8266 board
+.\setup_environment.ps1 -Component frontend   # Node.js + React packages
+.\setup_environment.ps1 -Component stm32      # Verify ARM toolchain
+```
+
+**Or manually:**
+```powershell
+# Python (Backend + ML + Simulation)
+pip install -r requirements_all.txt --user
+
+# Frontend (React Dashboard)
+cd cloud/frontend && npm install
+
+# ESP8266 (Arduino CLI)
+arduino-cli core install esp8266:esp8266 --additional-urls https://arduino.esp8266.com/stable/package_esp8266com_index.json
+```
+
+See `firmware/esp8266/dependencies.txt` and `firmware/stm32/dependencies.txt` for detailed toolchain requirements.
 
 ---
 
