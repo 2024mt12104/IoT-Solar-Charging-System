@@ -85,6 +85,7 @@ This project presents a **solar-assisted smart battery charging system** integra
 
 ## Quick Start – Environment Setup
 
+**Windows (PowerShell):**
 ```powershell
 # One-command setup (installs ALL dependencies):
 .\setup_environment.ps1 -Component all
@@ -96,8 +97,21 @@ This project presents a **solar-assisted smart battery charging system** integra
 .\setup_environment.ps1 -Component stm32      # Verify ARM toolchain
 ```
 
+**macOS / Linux (Bash):**
+```bash
+# One-command setup (installs ALL dependencies):
+chmod +x setup_environment.sh
+./setup_environment.sh all
+
+# Or install individual components:
+./setup_environment.sh python      # Flask + ML + Simulation
+./setup_environment.sh esp8266     # Arduino CLI + ESP8266 board
+./setup_environment.sh frontend    # Node.js + React packages
+./setup_environment.sh stm32       # Verify ARM toolchain
+```
+
 **Or manually:**
-```powershell
+```bash
 # Python (Backend + ML + Simulation)
 pip install -r requirements_all.txt --user
 
