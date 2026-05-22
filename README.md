@@ -29,17 +29,7 @@ This project presents a **solar-assisted smart battery charging system** integra
 
 ## System Architecture
 
-```
-[DC Power Supply / Solar Input (5V–12V)]
-            |
-      [DC-DC Converter]  ←── PWM Control ──→ [STM32F446RE]
-            |                                      |
-   [Supercapacitor Buffer]              [Voltage & Current Sensors]
-            |                                      |
-       [Battery / Load]           [UART] → [ESP8266 WiFi Module]
-                                                   |
-                                         [Cloud Dashboard / Analytics]
-```
+![System Architecture Diagram](documentation/images/System_Architecture_Diagram.png)
 
 ---
 

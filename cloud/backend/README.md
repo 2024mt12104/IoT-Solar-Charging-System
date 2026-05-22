@@ -31,6 +31,10 @@ and serves it to the React frontend dashboard.
 | GET | `/api/session` | Charging session statistics |
 | DELETE | `/api/data` | Clear all data (requires `X-Admin-Token` header) |
 
+### Data Flow Architecture
+
+![DataFlow Cloud Dashboard Architecture](../../documentation/images/DataFlow_Cloud_Dashboard_Architecture_Diagram.png)
+
 ---
 
 ## Setup

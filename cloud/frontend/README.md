@@ -28,6 +28,10 @@ Polls the Flask backend every 5 seconds and displays:
 | Energy Meter | `EnergyMeter.jsx` | Cumulative energy, efficiency progress bar |
 | Status Panel | `StatusPanel.jsx` | Connection, device info, session timer |
 
+### IoT Dashboard Interface
+
+![IoT Dashboard Interface](../../documentation/images/IoTDashboard_Interface_Diagram.png)
+
 ---
 
 ## Prerequisites

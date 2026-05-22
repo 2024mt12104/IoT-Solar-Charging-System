@@ -23,6 +23,8 @@ Usage Restriction: Unauthorized copying, redistribution, or commercial usage wit
 
 ## 1. Functional Block Diagram
 
+![Functional Block Diagram](images/Functional_Block_Diagram.png)
+
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
 │                         POWER FLOW                                  │
@@ -74,6 +76,10 @@ Usage Restriction: Unauthorized copying, redistribution, or commercial usage wit
 ---
 
 ## 2. Hardware Architecture
+
+![Hardware Circuit Diagram](images/Hardware_Circuit_Diagram.png)
+
+![Hardware Setup](images/Hardware_Setup_Diagram.png)
 
 ### 2.1 Input Stage
 
