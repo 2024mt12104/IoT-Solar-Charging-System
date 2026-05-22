@@ -38,14 +38,12 @@ The STM32 ADC operates in **12-bit continuous DMA mode**:
 
 **Raw ADC to Voltage Conversion:**
 
-```
-V_adc = (ADC_raw / 4095) × V_REF
-```
+$$V_{adc} = \frac{ADC_{raw}}{4095} \times V_{REF}$$
 
 Where:
-- `ADC_raw` = digital value from ADC register (0–4095)
-- `V_REF` = 3.3 V (STM32 internal reference)
-- `V_adc` = voltage at the ADC pin (0–3.3 V)
+- $ADC_{raw}$ = digital value from ADC register (0–4095)
+- $V_{REF}$ = 3.3 V (STM32 internal reference)
+- $V_{adc}$ = voltage at the ADC pin (0–3.3 V)
 
 
 **LAYMAN'S EXPLANATION:**
@@ -65,20 +63,17 @@ Real meaning: ADC read the voltage at the middle of its range (half of 3.3V)
 
 A resistor voltage divider scales the system voltage to the ADC input range:
 
-```
-V_actual = V_adc × (R1 + R2) / R2
-```
+$$V_{actual} = V_{adc} \times \frac{R_1 + R_2}{R_2}$$
 
 **Example (12V system):**
-- R1 = 30 kΩ, R2 = 10 kΩ
-- Scale factor = (30k + 10k) / 10k = 4.0
-- V_actual = V_adc × 4.0
-- At V_actual = 12V: V_adc = 3.0V → ADC_raw ≈ 3723
+- $R_1 = 30\,\text{k}\Omega$, $R_2 = 10\,\text{k}\Omega$
+- Scale factor = $\frac{30k + 10k}{10k} = 4.0$
+- $V_{actual} = V_{adc} \times 4.0$
+- At $V_{actual} = 12\text{V}$: $V_{adc} = 3.0\text{V}$ → $ADC_{raw} \approx 3723$
 
 **Calibration:**
-```
-V_calibrated = V_actual × (1 + gain_error) + offset_error
-```
+
+$$V_{calibrated} = V_{actual} \times (1 + \epsilon_{gain}) + \epsilon_{offset}$$
 
 **LAYMAN'S EXPLANATION:**
 Imagine a water pressure meter:
@@ -92,11 +87,9 @@ Imagine a water pressure meter:
 
 **Using ACS712 Hall-Effect Sensor:**
 - Sensitivity: 185 mV/A (ACS712-5A), 100 mV/A (ACS712-20A)
-- Zero-current output: V_zero = 2.5 V (at V_CC = 5V)
+- Zero-current output: $V_{zero} = 2.5\,\text{V}$ (at $V_{CC} = 5\text{V}$)
 
-```
-I_actual = (V_adc_current - V_zero) / Sensitivity
-```
+$$I_{actual} = \frac{V_{adc\_current} - V_{zero}}{\text{Sensitivity}}$$
 **LAYMAN'S EXPLANATION:**
 Think of a water flow meter:
 - No water flowing: Center position (2.5V - reference)
@@ -105,9 +98,8 @@ Think of a water flow meter:
 - The sensor detects magnetic field created by current
 
 **Example (ACS712-5A, 5V supply):**
-```
-I = (V_sensor - 2.5) / 0.185   [Amperes]
-```
+
+$$I = \frac{V_{sensor} - 2.5}{0.185} \quad [\text{Amperes}]$$
 
 **Note:** Since STM32 ADC input max is 3.3V, a resistor divider or op-amp level shifter may be required on the ACS712 output.
 
@@ -160,14 +152,12 @@ Result: Noise spike (15.2) is smoothed out to ~13.0!
 
 For faster response with noise reduction:
 
-```
-V_filtered[n] = α × V_raw[n] + (1 - α) × V_filtered[n-1]
-```
+$$V_{filtered}[n] = \alpha \times V_{raw}[n] + (1 - \alpha) \times V_{filtered}[n-1]$$
 
-Where α ∈ (0, 1) is the smoothing factor:
-- α = 0.1 → Heavy smoothing, slow response
-- α = 0.5 → Moderate balance
-- α = 0.9 → Light smoothing, fast response
+Where $\alpha \in (0, 1)$ is the smoothing factor:
+- $\alpha = 0.1$ → Heavy smoothing, slow response
+- $\alpha = 0.5$ → Moderate balance
+- $\alpha = 0.9$ → Light smoothing, fast response
 
 **LAYMAN'S EXPLANATION:**
 Like mixing paint colors:
@@ -194,9 +184,7 @@ Result: Smooth, stable readings around 100!
 
 ### 4.1 Instantaneous Power
 
-```
-P(t) = V(t) × I(t)   [Watts]
-```
+$$P(t) = V(t) \times I(t) \quad [\text{Watts}]$$
 
 **Firmware Implementation:**
 ```c
@@ -216,19 +204,15 @@ float compute_power(float voltage, float current) {
 
 Energy is computed by numerically integrating power over time using the **trapezoidal rule** (discrete approximation):
 
-```
-E[n] = E[n-1] + (P[n] + P[n-1]) / 2 × Δt
-```
+$$E[n] = E[n-1] + \frac{P[n] + P[n-1]}{2} \times \Delta t$$
 
-Simplified for fixed Δt (constant sampling interval):
-```
-E[n] = E[n-1] + P[n] × Δt
-```
+Simplified for fixed $\Delta t$ (constant sampling interval):
+
+$$E[n] = E[n-1] + P[n] \times \Delta t$$
 
 **Conversion to Watt-hours:**
-```
-E_Wh = E_joules / 3600
-```
+
+$$E_{Wh} = \frac{E_{joules}}{3600}$$
 
 **Firmware Implementation:**
 ```c
@@ -245,13 +229,11 @@ float get_energy_wh(void) {
 
 ### 4.3 System Efficiency
 
-```
-η = (P_out / P_in) × 100%
-```
+$$\eta = \frac{P_{out}}{P_{in}} \times 100\%$$
 
 Where:
-- `P_in` = V_in × I_in (input power from DC supply)
-- `P_out` = V_battery × I_battery (power delivered to battery)
+- $P_{in} = V_{in} \times I_{in}$ (input power from DC supply)
+- $P_{out} = V_{battery} \times I_{battery}$ (power delivered to battery)
 
 **Losses include:** DC-DC converter switching losses, resistive losses in wiring, supercapacitor ESR losses.
 
@@ -261,26 +243,22 @@ Where:
 
 ### 5.1 Energy Stored in Supercapacitor
 
-```
-E_supercap = ½ × C × V²   [Joules]
-```
+$$E_{supercap} = \frac{1}{2} \times C \times V^2 \quad [\text{Joules}]$$
 
 Where:
-- `C` = Capacitance in Farads
-- `V` = Supercapacitor terminal voltage at time t
+- $C$ = Capacitance in Farads
+- $V$ = Supercapacitor terminal voltage at time $t$
 
-**Example:** C = 50F, V = 8V → E = ½ × 50 × 64 = 1600 J = 0.444 Wh
+**Example:** $C = 50\text{F}$, $V = 8\text{V}$ → $E = \frac{1}{2} \times 50 \times 64 = 1600\,\text{J} = 0.444\,\text{Wh}$
 
 ### 5.2 State of Charge (SoC) Estimation
 
-```
-SoC = ((V² - V_min²) / (V_max² - V_min²)) × 100%
-```
+$$SoC = \frac{V^2 - V_{min}^2}{V_{max}^2 - V_{min}^2} \times 100\%$$
 
 Where:
-- `V` = Current voltage
-- `V_min` = Minimum usable voltage (e.g., 1V for 2.7V-rated supercap)
-- `V_max` = Maximum rated voltage (e.g., 2.7V per cell)
+- $V$ = Current voltage
+- $V_{min}$ = Minimum usable voltage (e.g., 1V for 2.7V-rated supercap)
+- $V_{max}$ = Maximum rated voltage (e.g., 2.7V per cell)
 
 **Firmware:**
 ```c
@@ -293,10 +271,7 @@ float compute_supercap_soc(float v_current, float v_min, float v_max) {
 
 ### 5.3 Supercapacitor Charge/Discharge Power
 
-```
-P_supercap = V_supercap × I_supercap
-           = V_supercap × C × (dV/dt)
-```
+$$P_{supercap} = V_{supercap} \times I_{supercap} = V_{supercap} \times C \times \frac{dV}{dt}$$
 
 This is used to estimate the contribution of the supercapacitor to maintaining charging current during input dips.
 
@@ -308,36 +283,31 @@ This is used to estimate the contribution of the supercapacitor to maintaining c
 
 A fixed duty cycle sets the DC-DC converter output:
 
-```
-V_out ≈ V_in × D   (Buck converter, ideal)
-```
+$$V_{out} \approx V_{in} \times D \quad \text{(Buck converter, ideal)}$$
 
-Where D = duty cycle (0.0–1.0).
+Where $D$ = duty cycle (0.0–1.0).
 
 ### 6.2 Closed-Loop Voltage Regulation (P-Controller)
 
-```
-error = V_target - V_measured
-duty_cycle = duty_cycle_base + K_p × error
-```
+$$e = V_{target} - V_{measured}$$
+
+$$D = D_{base} + K_p \times e$$
 
 Constrained to safe range:
-```
-duty_cycle = clamp(duty_cycle, D_min, D_max)
-```
+
+$$D = \text{clamp}(D,\; D_{min},\; D_{max})$$
 
 ### 6.3 PI Controller (Recommended for Stability)
 
-```
-error[n] = V_target - V_measured[n]
-integral[n] = integral[n-1] + error[n] × Δt
+$$e[n] = V_{target} - V_{measured}[n]$$
 
-duty_cycle = K_p × error[n] + K_i × integral[n]
-```
+$$I[n] = I[n-1] + e[n] \times \Delta t$$
+
+$$D = K_p \times e[n] + K_i \times I[n]$$
 
 **Typical Gain Values (requires tuning):**
-- K_p = 0.05 – 0.20
-- K_i = 0.001 – 0.01
+- $K_p = 0.05 – 0.20$
+- $K_i = 0.001 – 0.01$
 
 ### 6.4 Anti-Windup
 
@@ -437,30 +407,25 @@ Each data packet transmitted to ESP8266 at ~1 Hz:
 
 ### 10.1 ADC Quantization Error
 
-```
-±ΔV_quantization = ±(V_REF / 2^N) / 2 = ±(3.3 / 4096) / 2 ≈ ±0.4 mV
-```
+$$\pm\Delta V_{quantization} = \pm\frac{V_{REF}}{2^N \times 2} = \pm\frac{3.3}{4096 \times 2} \approx \pm 0.4\,\text{mV}$$
 
-After voltage divider scaling (×4): ±1.6 mV in actual voltage measurement.
+After voltage divider scaling (×4): $\pm 1.6\,\text{mV}$ in actual voltage measurement.
 
 ### 10.2 Current Measurement Error (ACS712)
 
 - Sensitivity error: ±1.5% typical
-- Zero-point offset: ±1.5% of V_CC
+- Zero-point offset: ±1.5% of $V_{CC}$
 - Temperature coefficient: ±0.5 mV/°C
 
 **Total current error at 1A:** ≈ ±2–3% of full scale
 
 ### 10.3 Power Measurement Error
 
-```
-ΔP/P = √((ΔV/V)² + (ΔI/I)²)
-```
+$$\frac{\Delta P}{P} = \sqrt{\left(\frac{\Delta V}{V}\right)^2 + \left(\frac{\Delta I}{I}\right)^2}$$
 
-For ΔV/V = 0.5%, ΔI/I = 2%:
-```
-ΔP/P = √(0.0025 + 0.04) ≈ 2.06%
-```
+For $\Delta V/V = 0.5\%$, $\Delta I/I = 2\%$:
+
+$$\frac{\Delta P}{P} = \sqrt{(0.005)^2 + (0.02)^2} \approx 2.06\%$$
 
 ---
 

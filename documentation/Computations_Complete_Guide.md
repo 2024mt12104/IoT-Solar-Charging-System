@@ -51,15 +51,13 @@ Usage Restriction: Unauthorized copying, redistribution, or commercial usage wit
 
 ### Formula
 
-```
-P = V × I
-```
+$$P = V \times I$$
 
 | Symbol | Meaning | Unit |
 |--------|---------|------|
-| P | Power | Watts (W) |
-| V | Voltage | Volts (V) |
-| I | Current | Amperes (A) |
+| $P$ | Power | Watts (W) |
+| $V$ | Voltage | Volts (V) |
+| $I$ | Current | Amperes (A) |
 
 ### Layman's Explanation — Water Analogy
 
@@ -72,9 +70,7 @@ Just as a high-pressure, high-flow hose does more work than a low-pressure trick
 
 ### Practical Example 1 — Phone Charging (5V, 2A)
 
-```
-P = 5V × 2A = 10 Watts
-```
+$$P = 5\,\text{V} \times 2\,\text{A} = 10\,\text{W}$$
 
 | Parameter | Value | Unit | Meaning |
 |-----------|-------|------|---------|
@@ -84,9 +80,7 @@ P = 5V × 2A = 10 Watts
 
 ### Practical Example 2 — Smart Charging System (12V, 3A)
 
-```
-P = 12V × 3A = 36 Watts
-```
+$$P = 12\,\text{V} \times 3\,\text{A} = 36\,\text{W}$$
 
 | Parameter | Value | Unit | Meaning |
 |-----------|-------|------|---------|
@@ -116,12 +110,11 @@ The STM32 reads voltage and current every millisecond (1000 times/second):
 
 ### Formula
 
-```
-E = P × t          (for constant power)
-E = ∫ P(t) dt      (for varying power — used in firmware)
-```
+$$E = P \times t \quad \text{(for constant power)}$$
 
-**Unit conversion: 1 Wh = 3,600 Joules** (multiply Wh by 3600 to get J)
+$$E = \int P(t)\, dt \quad \text{(for varying power — used in firmware)}$$
+
+**Unit conversion:** $1\,\text{Wh} = 3{,}600\,\text{Joules}$ (multiply Wh by 3600 to get J)
 
 ### Layman's Explanation — Speed × Time = Distance
 
@@ -136,9 +129,7 @@ If you use 10W for 2 hours → you consume 20 Wh of energy.
 
 ### Practical Example 1 — Phone Charging Over 2 Hours
 
-```
-E = 10W × 2h = 20 Wh = 20 × 3600 = 72,000 Joules
-```
+$$E = 10\,\text{W} \times 2\,\text{h} = 20\,\text{Wh} = 20 \times 3600 = 72{,}000\,\text{J}$$
 
 - Phone charger: 5V × 2A = 10W
 - Charged for 2 hours continuously
@@ -146,12 +137,11 @@ E = 10W × 2h = 20 Wh = 20 × 3600 = 72,000 Joules
 
 ### Practical Example 2 — System with Varying Power (Integration)
 
-```
-Interval 1: P=36W for 10 min  → E₁ = 36 × (10/60) = 6.0 Wh
-Interval 2: P=20W for 5 min   → E₂ = 20 × (5/60)  = 1.67 Wh  (cloud event)
-Interval 3: P=36W for 15 min  → E₃ = 36 × (15/60) = 9.0 Wh
-Total Energy = 6.0 + 1.67 + 9.0 = 16.67 Wh
-```
+- Interval 1: $P = 36\,\text{W}$ for 10 min → $E_1 = 36 \times \frac{10}{60} = 6.0\,\text{Wh}$
+- Interval 2: $P = 20\,\text{W}$ for 5 min → $E_2 = 20 \times \frac{5}{60} = 1.67\,\text{Wh}$ (cloud event)
+- Interval 3: $P = 36\,\text{W}$ for 15 min → $E_3 = 36 \times \frac{15}{60} = 9.0\,\text{Wh}$
+
+$$E_{total} = 6.0 + 1.67 + 9.0 = 16.67\,\text{Wh}$$
 
 ### What STM32 Will Do
 
@@ -168,15 +158,13 @@ Total Energy = 6.0 + 1.67 + 9.0 = 16.67 Wh
 
 ### Formula
 
-```
-E = ½ × C × V²
-```
+$$E = \frac{1}{2} \times C \times V^2$$
 
 | Symbol | Meaning | Unit |
 |--------|---------|------|
-| E | Stored Energy | Joules (J) |
-| C | Capacitance | Farads (F) |
-| V | Voltage across capacitor | Volts (V) |
+| $E$ | Stored Energy | Joules (J) |
+| $C$ | Capacitance | Farads (F) |
+| $V$ | Voltage across capacitor | Volts (V) |
 
 ### Layman's Explanation — Water Tank on a Hill
 
@@ -189,9 +177,7 @@ Imagine a water tank raised on a hill:
 
 ### Practical Example — 100F Supercapacitor at 2.7V
 
-```
-E = 0.5 × 100F × (2.7V)² = 0.5 × 100 × 7.29 = 364.5 Joules
-```
+$$E = 0.5 \times 100\,\text{F} \times (2.7\,\text{V})^2 = 0.5 \times 100 \times 7.29 = 364.5\,\text{J}$$
 
 ### Energy at Different Voltages (100F Supercapacitor)
 
@@ -228,15 +214,13 @@ E = 0.5 × 100F × (2.7V)² = 0.5 × 100 × 7.29 = 364.5 Joules
 
 ### Formula
 
-```
-D = (V_out / V_in) × 100%
-```
+$$D = \frac{V_{out}}{V_{in}} \times 100\%$$
 
 | Symbol | Meaning | Unit |
 |--------|---------|------|
-| D | Duty Cycle | % |
-| V_out | Desired output voltage | V |
-| V_in | Input voltage | V |
+| $D$ | Duty Cycle | % |
+| $V_{out}$ | Desired output voltage | V |
+| $V_{in}$ | Input voltage | V |
 
 ### Layman's Explanation
 
@@ -246,9 +230,7 @@ D = (V_out / V_in) × 100%
 
 ### Practical Example 1 — 12V Input, 9V Output Desired
 
-```
-D = (9V / 12V) × 100% = 75% Duty Cycle
-```
+$$D = \frac{9\,\text{V}}{12\,\text{V}} \times 100\% = 75\%\text{ Duty Cycle}$$
 
 **1ms PWM Cycle Timeline (75% Duty Cycle):**
 ```
@@ -279,9 +261,7 @@ D = (9V / 12V) × 100% = 75% Duty Cycle
 
 ### Formula
 
-```
-η = (E_out / E_in) × 100%
-```
+$$\eta = \frac{E_{out}}{E_{in}} \times 100\%$$
 
 ### Layman's Explanation — Fuel Gauge Analogy
 
@@ -291,9 +271,7 @@ In our charging system: if 100 Wh enters from the solar panel and 92 Wh actually
 
 ### Practical Example
 
-```
-η = (92 Wh / 100 Wh) × 100% = 92% Efficiency
-```
+$$\eta = \frac{92\,\text{Wh}}{100\,\text{Wh}} \times 100\% = 92\%$$
 
 - Energy input (from solar panel): 100 Wh
 - Energy losses (wiring heat + PWM switching + converter): 8 Wh
@@ -323,15 +301,13 @@ For a system running 8 hours/day, 365 days/year, on a 100W solar panel:
 
 ### Formula
 
-```
-t = Q / I
-```
+$$t = \frac{Q}{I}$$
 
 | Symbol | Meaning | Unit |
 |--------|---------|------|
-| t | Time to charge | hours (h) |
-| Q | Battery capacity | Ampere-hours (Ah) |
-| I | Charging current | Amperes (A) |
+| $t$ | Time to charge | hours (h) |
+| $Q$ | Battery capacity | Ampere-hours (Ah) |
+| $I$ | Charging current | Amperes (A) |
 
 ### Layman's Explanation — Filling a Tank
 
@@ -344,11 +320,9 @@ A bigger hose fills the pool faster! But pour too fast and you risk overflow (ov
 
 ### Practical Examples
 
-```
-5 Ah battery at 1A:  t = 5Ah / 1A  = 5 hours
-5 Ah battery at 2A:  t = 5Ah / 2A  = 2.5 hours
-5 Ah battery at 5A:  t = 5Ah / 5A  = 1 hour
-```
+- 5 Ah battery at 1A: $t = \frac{5}{1} = 5\,\text{hours}$
+- 5 Ah battery at 2A: $t = \frac{5}{2} = 2.5\,\text{hours}$
+- 5 Ah battery at 5A: $t = \frac{5}{5} = 1\,\text{hour}$
 
 | Charging Current | Battery Capacity | Time to Charge | Charge Rate | Notes |
 |-----------------|-----------------|----------------|-------------|-------|
@@ -364,9 +338,7 @@ A bigger hose fills the pool faster! But pour too fast and you risk overflow (ov
 
 ### Formula
 
-```
-V_drop = I × R
-```
+$$V_{drop} = I \times R$$
 
 ### Layman's Explanation — Narrow Water Pipes
 
@@ -374,9 +346,7 @@ As water travels through a long, narrow pipe, friction reduces pressure at the f
 
 ### Practical Example — 2m Cable, 3A Current
 
-```
-V_drop = 3A × 0.5Ω = 1.5 Volts
-```
+$$V_{drop} = 3\,\text{A} \times 0.5\,\Omega = 1.5\,\text{V}$$
 
 | Parameter | Value | Unit | Detail |
 |-----------|-------|------|--------|
@@ -405,30 +375,25 @@ V_drop = 3A × 0.5Ω = 1.5 Volts
 
 ### Formula
 
-```
-P_heat = I² × R
-Also: P_heat = V_drop × I = V_drop² / R
-```
+$$P_{heat} = I^2 \times R$$
+
+Also: $P_{heat} = V_{drop} \times I = \frac{V_{drop}^2}{R}$
 
 ### Layman's Explanation — Rubbing Your Hands
 
 Rub your hands together quickly — they get warm. Friction converts mechanical energy to heat. In wires, resistance does the same to electricity.
 
-**The I² factor is crucial: doubling current QUADRUPLES heat generation!**
+**The $I^2$ factor is crucial: doubling current QUADRUPLES heat generation!**
 
-```
-At 1A through 0.5Ω: P_heat = 1² × 0.5 = 0.5W  (barely warm)
-At 2A through 0.5Ω: P_heat = 4  × 0.5 = 2.0W  (noticeable)
-At 3A through 0.5Ω: P_heat = 9  × 0.5 = 4.5W  (hot — fire risk if wire too thin!)
-```
+- At 1A through $0.5\,\Omega$: $P_{heat} = 1^2 \times 0.5 = 0.5\,\text{W}$ (barely warm)
+- At 2A through $0.5\,\Omega$: $P_{heat} = 4 \times 0.5 = 2.0\,\text{W}$ (noticeable)
+- At 3A through $0.5\,\Omega$: $P_{heat} = 9 \times 0.5 = 4.5\,\text{W}$ (hot — fire risk if wire too thin!)
 
 ### Practical Example — Same 2m Cable, 3A
 
-```
-P_heat = (3A)² × 0.5Ω = 9 × 0.5 = 4.5 Watts wasted as heat!
+$$P_{heat} = (3\,\text{A})^2 \times 0.5\,\Omega = 9 \times 0.5 = 4.5\,\text{W wasted as heat!}$$
 
-Alternative: P_heat = V_drop × I = 1.5V × 3A = 4.5 Watts ✓ (same answer)
-```
+Alternative: $P_{heat} = V_{drop} \times I = 1.5\,\text{V} \times 3\,\text{A} = 4.5\,\text{W}$ ✓ (same answer)
 
 ### Impact Table
 
@@ -451,27 +416,22 @@ Alternative: P_heat = V_drop × I = 1.5V × 3A = 4.5 Watts ✓ (same answer)
 
 ### Formula
 
-```
-t = (C × ΔV) / I
-```
+$$t = \frac{C \times \Delta V}{I}$$
 
 | Symbol | Meaning | Unit |
 |--------|---------|------|
-| t | Time | seconds (s) |
-| C | Capacitance | Farads (F) |
-| ΔV | Voltage change | Volts (V) |
-| I | Charging/discharging current | Amperes (A) |
+| $t$ | Time | seconds (s) |
+| $C$ | Capacitance | Farads (F) |
+| $\Delta V$ | Voltage change | Volts (V) |
+| $I$ | Charging/discharging current | Amperes (A) |
 
 ### Practical Example — 100F Supercap, 0V to 2V at 5A
 
-```
-t = (100F × 2V) / 5A = 200 / 5 = 40 seconds
-```
+$$t = \frac{100\,\text{F} \times 2\,\text{V}}{5\,\text{A}} = \frac{200}{5} = 40\,\text{seconds}$$
 
 Faster at 10A:
-```
-t = (100F × 2V) / 10A = 200 / 10 = 20 seconds
-```
+
+$$t = \frac{100\,\text{F} \times 2\,\text{V}}{10\,\text{A}} = \frac{200}{10} = 20\,\text{seconds}$$
 
 ### Charge Time Reference Table
 
@@ -496,9 +456,7 @@ t = (100F × 2V) / 10A = 200 / 10 = 20 seconds
 
 ### Formula
 
-```
-SOC = (Current Level / Maximum Capacity) × 100%
-```
+$$SOC = \frac{\text{Current Level}}{\text{Maximum Capacity}} \times 100\%$$
 
 ### Layman's Explanation — Fuel Gauge
 
@@ -509,10 +467,7 @@ SOC is exactly like your car's fuel gauge:
 
 ### Practical Example
 
-```
-3500 mAh remaining in a 5000 mAh battery:
-SOC = (3500 / 5000) × 100% = 70%
-```
+$$SOC = \frac{3500\,\text{mAh}}{5000\,\text{mAh}} \times 100\% = 70\%$$
 
 ### SOC Interpretation Table
 
@@ -538,16 +493,16 @@ SOC = (3500 / 5000) × 100% = 70%
 
 | # | Computation | Formula | Units | What It Measures |
 |---|------------|---------|-------|-----------------|
-| 1 | Power | `P = V × I` | Watts (W) | Energy per second |
-| 2 | Energy | `E = P × t` (or `∫P dt`) | Wh or J | Total energy over time |
-| 3 | Supercap Storage | `E = ½ × C × V²` | Joules (J) | Energy in capacitor |
-| 4 | PWM Duty Cycle | `D = (V_out/V_in) × 100%` | % | Switching ratio for voltage control |
-| 5 | Efficiency | `η = (E_out/E_in) × 100%` | % | How much energy is usefully transferred |
-| 6 | Charging Time | `t = Q / I` | hours (h) | Time to fully charge battery |
-| 7 | Voltage Drop | `V_drop = I × R` | Volts (V) | Voltage lost in wiring |
-| 8 | Heat Dissipation | `P_heat = I² × R` | Watts (W) | Power wasted as heat in wires |
-| 9 | Supercap Time | `t = (C × ΔV) / I` | seconds (s) | Time to charge/discharge supercap |
-| 10 | State of Charge | `SOC = (Level/Max) × 100%` | % | Battery charge level |
+| 1 | Power | $P = V \times I$ | Watts (W) | Energy per second |
+| 2 | Energy | $E = P \times t$ (or $\int P\,dt$) | Wh or J | Total energy over time |
+| 3 | Supercap Storage | $E = \frac{1}{2} C V^2$ | Joules (J) | Energy in capacitor |
+| 4 | PWM Duty Cycle | $D = \frac{V_{out}}{V_{in}} \times 100\%$ | % | Switching ratio for voltage control |
+| 5 | Efficiency | $\eta = \frac{E_{out}}{E_{in}} \times 100\%$ | % | How much energy is usefully transferred |
+| 6 | Charging Time | $t = Q / I$ | hours (h) | Time to fully charge battery |
+| 7 | Voltage Drop | $V_{drop} = I \times R$ | Volts (V) | Voltage lost in wiring |
+| 8 | Heat Dissipation | $P_{heat} = I^2 \times R$ | Watts (W) | Power wasted as heat in wires |
+| 9 | Supercap Time | $t = \frac{C \times \Delta V}{I}$ | seconds (s) | Time to charge/discharge supercap |
+| 10 | State of Charge | $SOC = \frac{\text{Level}}{\text{Max}} \times 100\%$ | % | Battery charge level |
 
 ### Unit Conversions
 

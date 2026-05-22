@@ -2,7 +2,7 @@
 
 [![BITS WILP](https://img.shields.io/badge/BITS%20WILP-Engineering-blue)](https://www.bits-pilani.ac.in/wilp/)
 [![Semester](https://img.shields.io/badge/Semester-2%2C%202026-green)](https://github.com/2024mt12104/IoT-Solar-Charging-System)
-[![Status](https://img.shields.io/badge/Status-In%20Progress-orange)](https://github.com/2024mt12104/IoT-Solar-Charging-System)
+[![Status](https://img.shields.io/badge/Status-Completed-brightgreen)](https://github.com/2024mt12104/IoT-Solar-Charging-System)
 
 ---
 
@@ -61,12 +61,12 @@ This project presents a **solar-assisted smart battery charging system** integra
 
 | Phase | Description | Status |
 |-------|-------------|--------|
-| Phase 1 | Design & Planning | ✅ Completed (Feb 2026) |
-| Phase 2 | Hardware Setup | 🔄 In Progress (Mar 2026) |
-| Phase 3 | Firmware Development | 🔄 In Progress (Mar–Apr 2026) |
-| Phase 4 | IoT Integration | 📅 Next (Apr 2026) |
-| Phase 5 | Testing & Validation | 📅 Next (Apr–May 2026) |
-| Phase 6 | Final Documentation | 📅 Upcoming (May 2026) |
+| Phase 1 | Design & Planning | ✅ Completed |
+| Phase 2 | Hardware Setup | ✅ Completed |
+| Phase 3 | Firmware Development | ✅ Completed |
+| Phase 4 | IoT Integration | ✅ Completed |
+| Phase 5 | Testing & Validation | ✅ Completed |
+| Phase 6 | Final Documentation | ✅ Completed |
 
 ---
 
