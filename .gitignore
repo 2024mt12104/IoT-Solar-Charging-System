@@ -54,3 +54,4 @@ data/calibration_data/*.csv
 *.tmp
 *.bak
 *~
+ml_model/.ipynb_checkpoints/charging_time_prediction-checkpoint.ipynb
