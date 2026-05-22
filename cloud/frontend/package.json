@@ -1,8 +1,16 @@
 {
-  "name": "solar-charging-dashboard",
+  "name": "@2024mt12104/solar-charging-dashboard",
   "version": "1.0.0",
-  "private": true,
+  "private": false,
   "description": "IoT Solar Charging System – Real-time monitoring dashboard",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/2024mt12104/IoT-Solar-Charging-System.git",
+    "directory": "cloud/frontend"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "solar-charging-ml"
+version = "1.0.0"
+description = "ML-based charging time prediction for IoT Solar Charging System"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.10"
+authors = [
+    {name = "Ajeesh Kumar R", email = "2024mt12104@wilp.bits-pilani.ac.in"}
+]
+dependencies = [
+    "numpy>=1.26.0",
+    "pandas>=2.2.0",
+    "scikit-learn>=1.5.0",
+    "xgboost>=2.1.0",
+    "scipy>=1.6.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/2024mt12104/IoT-Solar-Charging-System"
+Repository = "https://github.com/2024mt12104/IoT-Solar-Charging-System"
