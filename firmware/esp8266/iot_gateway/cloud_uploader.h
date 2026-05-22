@@ -133,7 +133,11 @@ public:
         WiFiClient client;
         HTTPClient http;
 
+        #if CLOUD_USE_HTTPS
+        String url = String("https://") + CLOUD_HOST + ":" + CLOUD_PORT + CLOUD_API_PATH;
+        #else
         String url = String("http://") + CLOUD_HOST + ":" + CLOUD_PORT + CLOUD_API_PATH;
+        #endif
         http.begin(client, url);
         http.addHeader("Content-Type", "application/json");
 
@@ -169,7 +173,12 @@ public:
         f.sc_soc     = extractInt(raw, "\"sc_soc\":");
         f.sc_energy  = extractLong(raw, "\"sc_e\":");
         f.session_s  = extractLong(raw, "\"ts\":");
-        f.valid      = (raw.indexOf('{') >= 0 && raw.indexOf('}') >= 0);
+
+        /* Validate: must have braces AND at least the critical keys present */
+        f.valid = (raw.indexOf('{') >= 0 && raw.indexOf('}') >= 0 &&
+                   raw.indexOf("\"vs\":") >= 0 &&
+                   raw.indexOf("\"vb\":") >= 0 &&
+                   raw.indexOf("\"ii\":") >= 0);
 
         return f;
     }
@@ -183,7 +192,9 @@ private:
     static long extractLong(const String &s, const char *key) {
         int idx = s.indexOf(key);
         if (idx < 0) return 0L;
-        return s.substring(idx + strlen(key)).toInt();
+        /* Use atol() for proper long conversion instead of toInt() */
+        String val = s.substring(idx + strlen(key));
+        return atol(val.c_str());
     }
 };
 

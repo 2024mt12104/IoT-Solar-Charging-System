@@ -1,0 +1,24 @@
+# =============================================================================
+# All Python Dependencies (combined)
+# =============================================================================
+# Install: pip install -r requirements_all.txt --user
+#
+# This file aggregates dependencies from:
+#   - cloud/backend/requirements.txt
+#   - ml_model/requirements.txt
+# =============================================================================
+
+# --- Cloud Backend (Flask REST API) ---
+flask>=3.0.0
+flask-cors>=4.0.0
+gunicorn>=21.2.0
+
+# --- ML Model & Simulation ---
+numpy==1.26.4
+pandas==2.2.2
+scikit-learn==1.5.1
+matplotlib>=3.9.1
+seaborn==0.13.2
+xgboost==2.1.1
+scipy>=1.6.0
+jupyter==1.1.1

@@ -1,0 +1,46 @@
+# =============================================================================
+# STM32 Firmware Dependencies
+# =============================================================================
+# This firmware targets STM32F446RE (Nucleo-64 board).
+# Choose ONE of the following toolchains:
+#
+# Option A: STM32CubeIDE (Recommended for GUI-based development)
+#   - Download: https://www.st.com/en/development-tools/stm32cubeide.html
+#   - Version: 1.14.0 or later
+#   - Includes: arm-none-eabi-gcc, STM32 HAL, debugger
+#
+# Option B: Command-line toolchain
+#   - arm-none-eabi-gcc (version 12.x or later)
+#   - STM32CubeMX (for HAL code generation)
+#   - OpenOCD or ST-Link utility (for flashing)
+#
+# Required SDK/HAL:
+#   STM32CubeF4 HAL Library (v1.27.1 or later)
+#   CMSIS Core (bundled with CubeF4)
+#
+# Hardware:
+#   Board: NUCLEO-F446RE
+#   MCU:   STM32F446RET6 (ARM Cortex-M4, 180 MHz, 512KB Flash, 128KB RAM)
+#
+# Peripherals Used:
+#   ADC1 (PA0, PA1, PA4) - Voltage/current sensing
+#   TIM1 CH1 (PA8)       - PWM output for DC-DC converter
+#   USART2 (PA2 TX, PA3 RX) - UART to ESP8266
+#   GPIO (PC13)           - User button / status LED
+#
+# Compiler Flags:
+#   -mcpu=cortex-m4 -mthumb -mfpu=fpv4-sp-d16 -mfloat-abi=hard
+#   -DSTM32F446xx -DUSE_HAL_DRIVER
+# =============================================================================
+
+# Toolchain
+TOOLCHAIN=arm-none-eabi-gcc
+TOOLCHAIN_VERSION=>=12.0
+
+# SDK
+SDK=STM32CubeF4
+SDK_VERSION=>=1.27.1
+
+# Target MCU
+MCU=STM32F446RET6
+BOARD=NUCLEO-F446RE
