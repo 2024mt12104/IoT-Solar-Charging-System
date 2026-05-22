@@ -64,19 +64,27 @@ IoT-Solar-Charging-System/
 │   ├── PROJECT_OVERVIEW.md                # Complete project documentation
 │   ├── SYSTEM_ARCHITECTURE.md             # Detailed architecture guide
 │   ├── COMPUTATION_METHODOLOGY.md         # Computation methods
+│   ├── Computations_Complete_Guide.md     # End-to-end computation reference
 │   ├── DESIGN_CONSIDERATIONS.md           # Design rationale
 │   └── LITERATURE_REVIEW.md               # Annotated literature review
 ├── firmware/
 │   ├── stm32/                             # STM32 firmware (C/HAL)
 │   └── esp8266/                           # ESP8266 IoT gateway (Arduino)
 ├── cloud/
-│   ├── backend/                           # Node.js/Python API server
+│   ├── backend/                           # Python Flask REST API server
 │   └── frontend/                          # React dashboard
+├── ml_model/
+│   ├── charging_time_prediction.ipynb     # ML pipeline notebook
+│   ├── dataset_generation.py              # Synthetic dataset generator
+│   ├── charging_dataset.csv               # Generated dataset (1000 samples)
+│   ├── requirements.txt                   # ML dependencies
+│   └── README.md                          # ML module documentation
 ├── hardware/
 │   ├── schematics/                        # Circuit diagrams
 │   └── bill_of_materials.md               # Component list with specs
 ├── simulation/
-│   └── demo/                              # Software simulation & demo
+│   ├── demo/                              # Software simulation & demo
+│   └── data/                              # Simulated scenario CSVs
 ├── data/
 │   └── test_results/                      # Experimental data logs
 ├── project_structure.md                   # Repository organization guide
@@ -147,3 +155,39 @@ The Mid-Semester Viva presentation is available in `presentations/Mid_Sem_Viva_P
 
 This project is developed for academic purposes at BITS Pilani WILP.  
 © 2026 Ajeesh Kumar R (2024MT12104). All rights reserved.
+
+---
+
+## Academic Disclaimer
+
+```
+Project Title:
+IOT-ENABLED SOLAR-ASSISTED HIGH-EFFICIENCY BATTERY CHARGING USING
+SUPERCAPACITOR ENERGY BUFFERING
+
+Author:
+Ajeesh Kumar R
+BITS ID: 2024MT12104
+
+Programme:
+M.Tech in Software Systems – Specialization in IoT
+
+Institution:
+BITS Pilani – Work Integrated Learning Program (WILP) Division
+
+Academic Purpose Notice:
+This source code, dataset, documentation, and associated project files are
+developed solely for academic learning, research, experimentation, and project
+evaluation purposes under the M.Tech in Software Systems – Specialization in
+IoT programme at BITS Pilani WILP.
+
+Ownership Declaration:
+The complete project work, including source code, datasets, documentation,
+design files, reports, diagrams, and related resources, are the intellectual
+work of the above-mentioned author unless otherwise referenced.
+
+Usage Restriction:
+Unauthorized copying, redistribution, commercial usage, or modification of
+this project material without prior permission from the author is discouraged.
+This project is intended strictly for educational and research-oriented use.
+```
