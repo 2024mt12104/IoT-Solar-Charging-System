@@ -34,6 +34,10 @@ STM32 USART2 → SoftwareSerial → ESP8266 → WiFi → Cloud REST API
 | GND | GND | Common ground |
 | 3.3V | 3.3V | (optional shared power) |
 
+### Communication Architecture
+
+![Communication Architecture](../../documentation/images/Communication_Architecture_Diagram.png)
+
 > **Voltage levels**: Both STM32 and ESP8266 operate at 3.3V logic – direct connection is safe.
 
 ---

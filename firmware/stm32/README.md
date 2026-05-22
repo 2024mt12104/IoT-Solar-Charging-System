@@ -28,6 +28,14 @@ The STM32 firmware runs on the **STM32F446RE Nucleo** board and performs:
 | Communication | `communication.c/.h` | JSON frames over USART2 to ESP8266 |
 | Main | `main.c` | 10 ms control loop integrating all modules |
 
+### Firmware Program Flow
+
+![Software Firmware Flowchart](../../documentation/images/Software_Firmware_Flowchart_Diagram.png)
+
+### PWM Generation & Converter Control
+
+![PWM Generation & Converter Control](../../documentation/images/PWM_Generation_Converter_Control_Diagram.png)
+
 ---
 
 ## Prerequisites

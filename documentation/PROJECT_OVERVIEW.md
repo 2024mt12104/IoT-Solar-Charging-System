@@ -62,6 +62,8 @@ Current small-scale and residential solar charging systems face the following ch
 
 ## 3. Scope of Work
 
+![System Architecture Diagram](images/System_Architecture_Diagram.png)
+
 ### 3.1 In Scope
 
 - **Scaled low-voltage prototype** (5–12 V DC) for safe laboratory demonstration
