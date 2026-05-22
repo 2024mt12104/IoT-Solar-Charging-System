@@ -169,13 +169,12 @@ Level 3: Hard fault (disable all outputs, require manual reset)
 | Analog ground separation | Separate AGND plane for sensor signals |
 | Decoupling capacitors | 100nF + 10µF at each IC power pin |
 | Shielded signal cables | For voltage/current sensor lines |
-| RC low-pass filter | On ADC inputs: R=1kΩ, C=10nF → f_c = 16 kHz |
+| RC low-pass filter | On ADC inputs: R=1kΩ, C=10nF → $f_c = 16\,\text{kHz}$ |
 | Grounding star topology | All ground connections to single point |
 
 **RC Filter Cutoff Frequency:**
-```
-f_c = 1 / (2π × R × C) = 1 / (2π × 1000 × 10×10⁻⁹) ≈ 15.9 kHz
-```
+
+$$f_c = \frac{1}{2\pi \times R \times C} = \frac{1}{2\pi \times 1000 \times 10 \times 10^{-9}} \approx 15.9\,\text{kHz}$$
 
 This filters PWM switching noise (20 kHz) while passing useful charging dynamics (< 1 kHz).
 
@@ -188,7 +187,7 @@ This filters PWM switching noise (20 kHz) while passing useful charging dynamics
 **Integration Points:**
 - Supercapacitor connected in parallel with battery charging node
 - Separate voltage measurement channel for supercapacitor monitoring
-- Energy contribution calculated as: ΔE_sc = ½ × C × (V₁² - V₂²)
+- Energy contribution calculated as: $\Delta E_{sc} = \frac{1}{2} \times C \times (V_1^2 - V_2^2)$
 - Toggle mechanism (relay or software-controlled FET) to enable/disable buffer for experimental comparison
 
 **Testing Protocol:**

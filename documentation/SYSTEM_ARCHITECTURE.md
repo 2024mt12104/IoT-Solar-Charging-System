@@ -131,7 +131,7 @@ Usage Restriction: Unauthorized copying, redistribution, or commercial usage wit
 
 #### Voltage Sensing
 - **Method:** Resistive voltage divider (R1, R2) + STM32 ADC input
-- **Formula:** V_measured = V_actual × R2 / (R1 + R2)
+- **Formula:** $V_{measured} = V_{actual} \times \frac{R_2}{R_1 + R_2}$
 - **Scaling:** Calibrated to ADC reference voltage (3.3V)
 
 #### Current Sensing
