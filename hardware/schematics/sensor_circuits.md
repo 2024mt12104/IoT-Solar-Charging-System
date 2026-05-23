@@ -17,6 +17,8 @@ Usage Restriction: Unauthorized copying, redistribution, or commercial usage wit
 
 ## 1. Voltage Sensing — Resistive Divider
 
+![Voltage Sensing Resistive Divider Diagram](../../documentation/images/Voltage_sensing_resistive_divider_diagram.png)
+
 ### Circuit Diagram
 
 ```
@@ -56,6 +58,8 @@ $$V_{adc} = V_{actual} \times \frac{R_2}{R_1 + R_2} = V_{actual} \times \frac{10
 ---
 
 ## 2. Current Sensing — ACS712 Hall-Effect Sensor
+
+![ACS712 Hall-Effect Sensor Datasheet Diagram](../../documentation/images/ACS712_Hall-Effect_sensor_datasheet_diagram.png)
 
 ### Circuit Diagram
 
@@ -104,6 +108,8 @@ $$I_{actual} = \frac{V_{sensor} - V_{zero}}{\text{Sensitivity}} = \frac{V_{senso
 
 ## 3. Supercapacitor Monitoring Circuit
 
+![Supercapacitor Monitoring Circuit Diagram](../../documentation/images/Supercapacitor_monitoring_circuit_infographic_diagram.png)
+
 ### Circuit Diagram
 
 ```
@@ -142,6 +148,10 @@ $$I_{actual} = \frac{V_{sensor} - V_{zero}}{\text{Sensitivity}} = \frac{V_{senso
 
 ## 4. DC-DC Buck Converter Stage
 
+![DC-DC Buck Converter Design Diagram](../../documentation/images/DC-DC_buck_converter_design_diagram.png)
+
+![PWM Generation Converter Control](../../documentation/images/PWM_Generation_Converter_Control_Diagram.png)
+
 ### Circuit Diagram
 
 ```
@@ -178,6 +188,8 @@ $$I_{actual} = \frac{V_{sensor} - V_{zero}}{\text{Sensitivity}} = \frac{V_{senso
 ---
 
 ## 5. Signal Conditioning Summary
+
+![Signal Conditioning for ADC Input Protection](../../documentation/images/Signal_conditioning_for_ADC_input_protection.png)
 
 All analog signals pass through identical RC low-pass filters before reaching the STM32 ADC:
 
