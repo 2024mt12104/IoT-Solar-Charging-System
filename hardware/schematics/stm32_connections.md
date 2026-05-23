@@ -15,6 +15,8 @@ Usage Restriction: Unauthorized copying, redistribution, or commercial usage wit
 
 # STM32F446RE Pin Connections
 
+![STM32F446RE Nucleo-64 Pinout Diagram](../../documentation/images/STM32F446RE_Nucleo-64_pinout_diagram.png)
+
 ## Pin Mapping Table
 
 | STM32 Pin | Peripheral | Function | Connected To | Notes |
@@ -32,6 +34,10 @@ Usage Restriction: Unauthorized copying, redistribution, or commercial usage wit
 | **GND** | Power | Ground | Common ground plane | Star topology |
 
 ## STM32 Nucleo Board Diagram
+
+![STM32F446RE Pin Mapping Diagram](../../documentation/images/STM32F446RE_pin_mapping_diagram.png)
+
+![STM32 Nucleo-64 Connection Diagram](../../documentation/images/STM32_Nucleo-64_connection_diagram.png)
 
 ```
                     ┌─────────────────────────────────┐
@@ -54,6 +60,8 @@ Usage Restriction: Unauthorized copying, redistribution, or commercial usage wit
 
 ## UART Connection — STM32 to ESP8266
 
+![UART Connection Diagram STM32 to ESP8266](../../documentation/images/UART_connection_diagram_STM32_to_ESP8266.png)
+
 ```
     STM32F446RE                          ESP8266 NodeMCU
     ┌──────────┐                         ┌──────────────┐
@@ -73,6 +81,8 @@ Usage Restriction: Unauthorized copying, redistribution, or commercial usage wit
 
 ## PWM Output — Gate Driver Connection
 
+![PWM to Gate Driver Connection Diagram](../../documentation/images/PWM_to_gate_driver_connection_diagram.png)
+
 ```
     STM32                Gate Driver           Power MOSFET
     ┌──────┐            ┌──────────┐          ┌──────────┐
@@ -89,6 +99,10 @@ Usage Restriction: Unauthorized copying, redistribution, or commercial usage wit
 ```
 
 ## ADC Configuration
+
+![STM32 ADC and DMA Configuration Diagram](../../documentation/images/STM32_ADC_and_DMA_configuration_diagram.png)
+
+![STM32-based Signal Conditioning Diagram](../../documentation/images/STM32-based_signal_conditioning_diagram.png)
 
 | Channel | Pin | Sample Time | Resolution | DMA | Purpose |
 |---------|-----|-------------|-----------|-----|---------|

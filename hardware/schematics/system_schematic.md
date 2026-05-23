@@ -17,6 +17,10 @@ Usage Restriction: Unauthorized copying, redistribution, or commercial usage wit
 
 ## High-Level System Block Diagram
 
+![Full System Block Diagram](../../documentation/images/Full_system_block_diagram.png)
+
+![Functional Block Diagram](../../documentation/images/Functional_Block_Diagram.png)
+
 ```mermaid
 graph LR
     subgraph Power Source
@@ -53,6 +57,8 @@ graph LR
 ```
 
 ## Detailed Power Flow
+
+![Detailed Power Flow Architecture](../../documentation/images/Detailed_power_flow_architecture_diagram.png)
 
 ```
                                     PWM Gate Drive (PA8)
@@ -91,6 +97,10 @@ graph LR
 
 ## Component Interconnections
 
+![Hardware Circuit Diagram](../../documentation/images/Hardware_Circuit_Diagram.png)
+
+![Hardware Setup Diagram](../../documentation/images/Hardware_Setup_Diagram.png)
+
 ```
 ┌─────────────────────────────────────────────────────────────────────────┐
 │                        STM32F446RE NUCLEO-64                              │
@@ -113,6 +123,8 @@ graph LR
 
 ## Signal Conditioning — ADC Input Protection
 
+![Signal Conditioning for ADC Input Protection](../../documentation/images/Signal_conditioning_for_ADC_input_protection.png)
+
 ```
                     R_filter = 1kΩ
     Sensor Out ────/\/\/\/──────┬──────── ADC Pin (PA0-PA5, PB0)
@@ -121,6 +133,12 @@ graph LR
                                 │
                                GND
 
-    RC Low-Pass Filter: f_c = 1/(2π × 1kΩ × 10nF) ≈ 15.9 kHz
-    Filters PWM switching noise (100 kHz) while passing measurement signals (< 1 kHz)
-```
+## System Architecture Overview
+
+![System Architecture Diagram](../../documentation/images/System_Architecture_Diagram.png)
+
+## Communication Architecture
+
+![Communication Architecture Diagram](../../documentation/images/Communication_Architecture_Diagram.png)
+
+![DataFlow Cloud Dashboard Architecture](../../documentation/images/DataFlow_Cloud_Dashboard_Architecture_Diagram.png)
