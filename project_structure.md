@@ -150,14 +150,18 @@ cloud/
 ### `/hardware/`
 Circuit schematics, PCB layouts, and component specifications.
 
+> **Note:** Hardware schematic PDFs and PCB layout files are planned for a future release.
+> This directory currently serves as a placeholder for physical design documentation.
+
 ```
 hardware/
-├── schematics/
-│   ├── system_schematic.pdf            # Full circuit diagram
-│   ├── stm32_connections.pdf           # STM32 pin mapping
-│   └── sensor_circuits.pdf             # Sensor interface circuits
-├── pcb_layout/                         # PCB files (KiCad/Eagle, if applicable)
-└── bill_of_materials.md                # Component list with part numbers & costs
+├── schematics/                         # (Planned) Circuit diagrams
+│   └── .gitkeep
+└── (planned)
+    ├── system_schematic.pdf            # Full circuit diagram
+    ├── stm32_connections.pdf           # STM32 pin mapping
+    ├── sensor_circuits.pdf             # Sensor interface circuits
+    └── bill_of_materials.md            # Component list with part numbers & costs
 ```
 
 **Bill of Materials Summary:**
