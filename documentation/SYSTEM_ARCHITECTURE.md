@@ -143,6 +143,8 @@ Usage Restriction: Unauthorized copying, redistribution, or commercial usage wit
 
 ## 3. Firmware Architecture (STM32F446RE)
 
+![Program Flow Diagram](images/Program_Flow_Diagram.png)
+
 ### 3.1 Module Structure
 
 ```

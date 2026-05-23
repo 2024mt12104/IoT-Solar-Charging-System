@@ -33,6 +33,12 @@ This project presents a **solar-assisted smart battery charging system** integra
 
 ---
 
+## Final Demo
+
+![Final Demo Capture](documentation/images/Final_Demo_Capture.png)
+
+---
+
 ## Objectives
 
 1. Study conventional charging mechanisms and their limitations

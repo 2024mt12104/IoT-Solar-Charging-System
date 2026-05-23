@@ -405,6 +405,8 @@ Each data packet transmitted to ESP8266 at ~1 Hz:
 
 ## 10. Measurement Accuracy and Error Analysis
 
+![System Monitoring Calculations](images/System_Monitoring_Calculations_Diagram.png)
+
 ### 10.1 ADC Quantization Error
 
 $$\pm\Delta V_{quantization} = \pm\frac{V_{REF}}{2^N \times 2} = \pm\frac{3.3}{4096 \times 2} \approx \pm 0.4\,\text{mV}$$
@@ -426,6 +428,12 @@ $$\frac{\Delta P}{P} = \sqrt{\left(\frac{\Delta V}{V}\right)^2 + \left(\frac{\De
 For $\Delta V/V = 0.5\%$, $\Delta I/I = 2\%$:
 
 $$\frac{\Delta P}{P} = \sqrt{(0.005)^2 + (0.02)^2} \approx 2.06\%$$
+
+---
+
+## 11. Experimental Results and Performance Evaluation
+
+![Experimental Results and Performance Evaluation](images/Experimental_Results_Performance_Evaluation_Diagram.png)
 
 ---
 
