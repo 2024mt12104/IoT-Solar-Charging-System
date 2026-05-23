@@ -148,20 +148,14 @@ cloud/
 ---
 
 ### `/hardware/`
-Circuit schematics, PCB layouts, and component specifications.
-
-> **Note:** Hardware schematic PDFs and PCB layout files are planned for a future release.
-> This directory currently serves as a placeholder for physical design documentation.
+Circuit schematics, connection diagrams, and component specifications.
 
 ```
 hardware/
-├── schematics/                         # (Planned) Circuit diagrams
-│   └── .gitkeep
-└── (planned)
-    ├── system_schematic.pdf            # Full circuit diagram
-    ├── stm32_connections.pdf           # STM32 pin mapping
-    ├── sensor_circuits.pdf             # Sensor interface circuits
-    └── bill_of_materials.md            # Component list with part numbers & costs
+├── schematics/
+│   ├── system_schematic.md             # Full system block diagram & power flow
+│   ├── stm32_connections.md            # STM32 pin mapping & peripheral config
+│   └── sensor_circuits.md              # Voltage divider, ACS712, buck converter circuits
 ```
 
 **Bill of Materials Summary:**
